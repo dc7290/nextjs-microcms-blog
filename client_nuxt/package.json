@@ -1,0 +1,42 @@
+{
+  "name": "microcms-blog",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "generate": "nuxt generate --fail-on-error",
+    "start": "nuxt start",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
+    "functions:build": "netlify-lambda build functions",
+    "functions:serve": "netlify-lambda serve functions"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.3",
+    "highlight.js": "^10.0.0",
+    "nuxt": "^2.15.4"
+  },
+  "devDependencies": {
+    "@nuxtjs/dayjs": "^1.1.9",
+    "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/eslint-config": "^3.0.0",
+    "@nuxtjs/eslint-module": "^2.0.0",
+    "@nuxtjs/feed": "^1.1.0",
+    "@nuxtjs/google-analytics": "^2.2.0",
+    "@nuxtjs/proxy": "^2.1.0",
+    "@nuxtjs/pwa": "^3.0.0-beta.20",
+    "@nuxtjs/sitemap": "^2.4.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-nuxt": "^1.0.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "netlify-lambda": "^1.6.3",
+    "postcss-css-variables": "^0.13.0",
+    "postcss-import": "^12.0.1",
+    "postcss-nested": "^4.1.2",
+    "prettier": "^2.0.5",
+    "vue-scrollto": "^2.17.1"
+  }
+}
