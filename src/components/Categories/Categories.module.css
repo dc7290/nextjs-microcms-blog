@@ -1,33 +1,6 @@
-<template>
-  <div class="wrapper">
-    <h1 class="pageTitle">最新の記事</h1>
-    <ul>
-      <li v-for="content in contents" :key="content.id" class="list">
-        <nuxt-link :to="`/${content.id}`" class="link">
-          {{ content.title }}
-        </nuxt-link>
-      </li>
-    </ul>
-  </div>
-</template>
-
-<script>
-export default {
-  props: {
-    contents: {
-      type: Array,
-      required: false,
-      default: () => [],
-    },
-  },
-};
-</script>
-
-<style scoped>
 @media (min-width: 1160px) {
   .wrapper {
-    position: sticky !important;
-    top: 115px;
+    padding: 40px 0;
   }
 
   .pageTitle {
@@ -42,19 +15,19 @@ export default {
   .list {
     border-bottom: 1px solid #eee;
 
+    a {
+      display: block;
+      padding: 10px;
+    }
+
     &:last-child {
       border-bottom: none;
     }
-  }
-
-  .link {
-    display: block;
-    padding: 10px;
   }
 }
 @media (min-width: 820px) and (max-width: 1160px) {
   .wrapper {
-    padding: 40px 0;
+    padding: 40px 0 0;
   }
 
   .pageTitle {
@@ -69,19 +42,19 @@ export default {
   .list {
     border-bottom: 1px solid #eee;
 
+    a {
+      display: block;
+      padding: 10px;
+    }
+
     &:last-child {
       border-bottom: none;
     }
-  }
-
-  .link {
-    display: block;
-    padding: 10px;
   }
 }
 @media (max-width: 820px) {
   .wrapper {
-    padding: 40px 0;
+    padding: 40px 0 0;
   }
 
   .pageTitle {
@@ -96,14 +69,13 @@ export default {
   .list {
     border-bottom: 1px solid #eee;
 
+    a {
+      display: block;
+      padding: 10px;
+    }
+
     &:last-child {
       border-bottom: none;
     }
   }
-
-  .link {
-    display: block;
-    padding: 10px;
-  }
 }
-</style>
