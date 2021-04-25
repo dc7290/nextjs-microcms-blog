@@ -1,0 +1,15 @@
+.image {
+  width: 300px;
+  border-radius: 5px;
+}
+
+.link {
+  display: block;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 1160px) {
+  .wrapper {
+    text-align: center;
+  }
+}
