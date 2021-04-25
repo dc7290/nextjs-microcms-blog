@@ -1,0 +1,4 @@
+.next
+public
+src/api/$api.ts
+lib/$path.ts
