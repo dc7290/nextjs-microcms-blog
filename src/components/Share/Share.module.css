@@ -1,0 +1,64 @@
+@media (min-width: 820px) {
+  .share {
+    width: 24px;
+    padding-top: 16px;
+
+    img {
+      max-width: 24px;
+      max-height: 24px;
+    }
+  }
+
+  .shareLists {
+    display: block;
+    position: sticky;
+    top: 120px;
+  }
+
+  .shareList {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+@media (min-width: 600px) and (max-width: 820px) {
+  .share {
+    width: 24px;
+    padding-top: 16px;
+
+    img {
+      max-width: 24px;
+      max-height: 24px;
+    }
+  }
+
+  .shareLists {
+    display: block;
+    position: sticky;
+    top: 100px;
+  }
+
+  .shareList {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .share {
+    margin: 40px 0 0;
+
+    img {
+      max-height: 20px;
+    }
+  }
+
+  .shareLists {
+    display: flex;
+    justify-content: center;
+  }
+
+  .shareList {
+    text-align: center;
+    margin: 0 20px;
+  }
+}

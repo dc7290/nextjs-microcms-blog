@@ -1,0 +1,36 @@
+.wrapper {
+  background-color: #f7f7fc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+.title {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 0 10px;
+  border-radius: 5px;
+}
+
+.list {
+  padding: 5px 0;
+  font-size: 14px;
+  border-bottom: 1px solid #e7e7f3;
+
+  a:hover {
+    color: #331cbf;
+  }
+
+  &::before {
+    content: '-';
+    margin-right: 5px;
+    color: #cacae7;
+  }
+
+  &.h2 {
+    margin-left: 10px;
+  }
+
+  &.h3 {
+    margin-left: 20px;
+  }
+}

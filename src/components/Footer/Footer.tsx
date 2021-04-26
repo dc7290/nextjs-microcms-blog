@@ -25,7 +25,7 @@ const list = [
   },
 ]
 
-const Component: React.FC = () => (
+const Component: React.VFC = () => (
   <footer className={styles.footer}>
     <ul className={styles.lists}>
       {list.map((item) => (
@@ -38,7 +38,7 @@ const Component: React.FC = () => (
   </footer>
 )
 
-const Container: React.FC = () => {
+const Container: React.VFC = () => {
   return <Component />
 }
 
