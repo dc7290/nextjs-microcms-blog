@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 
+import { pagesPath } from '~/lib/$path'
 import { Blog } from '~/src/types/microCMS/api/Blog'
 
 import styles from './Latest.module.css'
@@ -16,7 +17,7 @@ const Component: React.VFC<Props> = ({ contents }) => (
     <ul>
       {contents.map((content) => (
         <li key={content.id} className={styles.list}>
-          <Link href={`/${content.id}`}>
+          <Link href={pagesPath._slug(content.id).$url()}>
             <a className={styles.link}>{content.title}</a>
           </Link>
         </li>

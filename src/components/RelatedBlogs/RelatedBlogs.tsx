@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 
+import { pagesPath } from '~/lib/$path'
 import { Meta } from '~/src/components/Meta'
 import { Blog } from '~/src/types/microCMS/api/Blog'
 
@@ -17,8 +18,8 @@ const Component: React.VFC<Props> = ({ blogs }) => (
     <h2 className={styles.pageTitle}>関連記事</h2>
     <ul className={styles.lists}>
       {blogs.map((blog) => (
-        <li key="blog.id" className={styles.list}>
-          <Link href={`/${blog.id}`}>
+        <li key={blog.id} className={styles.list}>
+          <Link href={pagesPath._slug(blog.id).$url()}>
             <a>
               <picture>
                 <source type="image/webp" data-srcset={`${blog.ogimage.url}?w=820&fm=webp`} />

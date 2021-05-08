@@ -30,28 +30,29 @@ const Component: React.VFC<Props> = ({ shareList }) => (
 )
 
 const Container: React.VFC<ContainerProps> = ({ id, title }) => {
+  const domainName = ''
   const shareList: Props['shareList'] = useMemo(
     () => [
       {
-        href: `https://twitter.com/intent/tweet?text=${title}&url=https://blog.microcms.io/${id}/&hashtags=microcms`,
+        href: `https://twitter.com/intent/tweet?text=${title}&url=https://${domainName}/${id}/&hashtags=microcms`,
         src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/icon_twitter.svg`,
         alt: 'Twitter',
       },
       {
-        href: `https://www.facebook.com/sharer.php?u=https://blog.microcms.io/${id}/`,
+        href: `https://www.facebook.com/sharer.php?u=https://${domainName}/${id}/`,
         src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/icon_facebook.svg`,
         alt: 'Facebook',
       },
       {
-        href: `https://b.hatena.ne.jp/entry/https://blog.microcms.io/${id}/`,
+        href: `https://b.hatena.ne.jp/entry/https://${domainName}/${id}/`,
         src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/icon_hatena.svg`,
         alt: 'はてなブックマーク',
       },
-      {
-        href: 'https://blog.microcms.io/feed.xml',
-        src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/icon_feed.svg`,
-        alt: 'フィード',
-      },
+      // {
+      //   href: `https://${domainName}/feed.xml`,
+      //   src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/icon_feed.svg`,
+      //   alt: 'フィード',
+      // },
     ],
     [id, title]
   )

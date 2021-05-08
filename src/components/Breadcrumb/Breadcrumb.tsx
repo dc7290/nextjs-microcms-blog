@@ -21,7 +21,7 @@ const Component: React.VFC<Props> = ({ category }) => (
     </li>
     {category && (
       <li className={styles.breadcrumbList}>
-        <Link href={`/category/${category.id}/page/1`}>{category.name}</Link>
+        <Link href={pagesPath.category._categoryId(category.id).page._pageNumber(1).$url()}>{category.name}</Link>
       </li>
     )}
   </ul>
