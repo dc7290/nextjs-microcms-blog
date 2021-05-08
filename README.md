@@ -31,6 +31,7 @@
 - PostCSS
 - aspida
 - pathpida
+- SWR
 
 ## microCMS の API スキーマ設定
 
@@ -117,7 +118,7 @@ type: オブジェクト形式
 ```
 API_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 SERVICE_ID=your-service-id
-NEXT_PUBLIC_GOOGLE_ANALYTICS_ID=test/
+NEXT_PUBLIC_GOOGLE_ANALYTICS_ID=/test
 NEXT_PUBLIC_BASE_PATH=G-xxxxxxxxxx
 ```
 

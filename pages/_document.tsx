@@ -7,6 +7,7 @@ class MyDocument extends Document {
     return (
       <Html lang="ja">
         <Head>
+          <link rel="shortcut icon" href={`${process.env.NEXT_PUBLIC_BASE_PATH}/favicon.png`} type="image/png" />
           {GA_ID !== undefined && (
             <>
               <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
