@@ -1,0 +1,37 @@
+@media (min-width: 1160px) {
+  .divider {
+    display: flex;
+    justify-content: space-between;
+    width: 1160px;
+    margin: 20px auto 0;
+  }
+
+  .container {
+    width: 820px;
+  }
+
+  .aside {
+    width: 300px;
+  }
+}
+@media (min-width: 820px) and (max-width: 1160px) {
+  .divider {
+    margin: 20px auto 0;
+    width: 740px;
+  }
+
+  .aside {
+    margin-top: 60px;
+  }
+}
+@media (max-width: 820px) {
+  .divider {
+    margin: 20px 0 0;
+    padding: 0 20px;
+  }
+
+  .aside {
+    margin-top: 60px;
+    width: 100%;
+  }
+}

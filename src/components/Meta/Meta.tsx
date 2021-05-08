@@ -22,10 +22,12 @@ const Component: React.VFC<Props> = ({ author, category, createdAt }) => (
         <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/icon_clock.svg`} alt="時計アイコン" />
         {dayjs(createdAt).format('YYYY/MM/DD')}
       </span>
-      <span className={styles.author}>
-        <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/icon_author.svg`} alt="著者アイコン" />
-        {author}
-      </span>
+      {author && (
+        <span className={styles.author}>
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/icon_author.svg`} alt="著者アイコン" />
+          {author}
+        </span>
+      )}
     </div>
   </div>
 )

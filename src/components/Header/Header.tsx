@@ -2,6 +2,8 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useState } from 'react'
 
+import { headerId } from '~/src/utils/ids'
+
 import styles from './Header.module.css'
 
 type Props = {
@@ -31,8 +33,8 @@ const LinkList = [
 ]
 
 const Component: React.VFC<Props> = ({ params, isOpen, toggleOpen, setIsOpen }) => (
-  <div>
-    <header className={styles.header}>
+  <>
+    <header id={headerId} className={styles.header}>
       <h1 className={styles.logo}>
         <a href="https://microcms.io">
           <img className={styles.logoImg} src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/logo.svg`} alt="microCMS" />
@@ -42,7 +44,6 @@ const Component: React.VFC<Props> = ({ params, isOpen, toggleOpen, setIsOpen }) 
         <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/icon_menu.svg`} alt="menu" />
       </button>
       {isOpen && <div className={styles.mask} onClick={() => setIsOpen(false)}></div>}
-
       <div className={styles.menu} data-is-open={isOpen}>
         <ul className={styles.lists}>
           {LinkList.map((link) => (
@@ -53,12 +54,12 @@ const Component: React.VFC<Props> = ({ params, isOpen, toggleOpen, setIsOpen }) 
         </ul>
         <ul className={styles.lists}>
           <li className={styles.list}>
-            <a className="signin" href="https://app.microcms.io/signin">
+            <a className={styles.signin} href="https://app.microcms.io/signin">
               ログイン
             </a>
           </li>
           <li className={styles.list}>
-            <a className="signup" href={`https://app.microcms.io${params}`}>
+            <a className={styles.signup} href={`https://app.microcms.io${params}`}>
               新規登録
             </a>
           </li>
@@ -66,7 +67,7 @@ const Component: React.VFC<Props> = ({ params, isOpen, toggleOpen, setIsOpen }) 
       </div>
     </header>
     <div className={styles.empty}></div>
-  </div>
+  </>
 )
 
 const Container: React.VFC = () => {

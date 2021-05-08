@@ -21,13 +21,13 @@ const Component: React.VFC<Props> = ({ blogs }) => (
           <Link href={`/${blog.id}`}>
             <a>
               <picture>
-                <source type="image/webp" srcSet={`${blog.ogimage.url}?w=820&fm=webp`} />
-                <img src={`${blog.ogimage.url}?w=820`} className={styles.img} alt="" />
+                <source type="image/webp" data-srcset={`${blog.ogimage.url}?w=820&fm=webp`} />
+                <img data-src={`${blog.ogimage.url}?w=820`} className={'lazyload ' + styles.img} alt="" />
               </picture>
               <dl className={styles.content}>
                 <dt className={styles.title}>{blog.title}</dt>
                 <dd>
-                  <Meta createdAt={blog.createdAt} author={blog.writer.name} category={blog.category} />
+                  <Meta createdAt={blog.createdAt} author={blog.writer?.name} category={blog.category} />
                 </dd>
               </dl>
             </a>

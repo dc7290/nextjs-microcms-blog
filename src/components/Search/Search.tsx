@@ -1,34 +1,42 @@
 import { useRouter } from 'next/router'
-import React, { KeyboardEventHandler } from 'react'
+import React, { ChangeEventHandler, KeyboardEventHandler, useState } from 'react'
+
+import { pagesPath } from '~/lib/$path'
 
 import styles from './Search.module.css'
 
-type Props = {
-  onKeyPress: KeyboardEventHandler<HTMLInputElement>
+type ContainerProps = {
+  isShowText?: boolean
 }
 
-const Component: React.VFC<Props> = ({ onKeyPress }) => (
+type Props = {
+  value: string
+  onChange: ChangeEventHandler<HTMLInputElement>
+  onKeyPress: KeyboardEventHandler<HTMLInputElement>
+} & ContainerProps
+
+const Component: React.VFC<Props> = ({ value, onChange, onKeyPress, isShowText = true }) => (
   <label className={styles.label}>
-    サイト内検索
-    <input className={styles.input} type="text" onKeyPress={onKeyPress} />
+    {isShowText && 'サイト内検索'}
+    <input className={styles.input} type="text" value={value} onChange={onChange} onKeyPress={onKeyPress} />
   </label>
 )
 
-const Container: React.VFC = () => {
+const Container: React.VFC<ContainerProps> = (props) => {
+  const [value, setValue] = useState('')
+  const handleChange: Props['onChange'] = (event) => setValue(event.currentTarget.value)
+
   const router = useRouter()
   const handleKeyPress: Props['onKeyPress'] = (event) => {
-    event.preventDefault()
-
     if (event.key === 'Enter') {
-      router.push(`/search`, {
-        query: {
-          q: event.currentTarget.value,
-        },
+      router.push({
+        pathname: pagesPath.search.$url().pathname,
+        query: { q: value },
       })
     }
   }
 
-  return <Component onKeyPress={handleKeyPress} />
+  return <Component {...props} value={value} onChange={handleChange} onKeyPress={handleKeyPress} />
 }
 
 export default Container

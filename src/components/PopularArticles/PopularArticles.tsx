@@ -20,8 +20,8 @@ const Component: React.VFC<Props> = ({ contents }) => (
           <Link href={`/${content.id}`}>
             <a className={styles.link}>
               <picture>
-                <source type="image/webp" srcSet={`${content.ogimage.url}?w=560&fm=webp`} />
-                <img src={`${content.ogimage.url}?w=560&q=100`} className={styles.image} alt="" />
+                <source type="image/webp" data-srcset={`${content.ogimage.url}?w=560&fm=webp`} />
+                <img data-src={`${content.ogimage.url}?w=560&q=100`} className={'lazyload ' + styles.image} alt="" />
               </picture>
               <p className={styles.title}>{content.title}</p>
             </a>

@@ -14,8 +14,12 @@ const Component: React.VFC<Props> = ({ partner }) => (
   <div className={styles.wrapper}>
     <div className={styles.container}>
       <picture>
-        <source type="image/webp" srcSet={`${partner.logo.url}?fit=crop&w=100&h=100&fm=webp`} />
-        <img src={`${partner.logo.url}?fit=crop&w=100&h=100&q=100`} className={styles.image} alt="" />
+        <source type="image/webp" data-srcset={`${partner.logo.url}?fit=crop&w=100&h=100&fm=webp`} />
+        <img
+          data-src={`${partner.logo.url}?fit=crop&w=100&h=100&q=100`}
+          className={'lazyload ' + styles.image}
+          alt=""
+        />
       </picture>
       <dl className={styles.content}>
         <dt className={styles.name}>

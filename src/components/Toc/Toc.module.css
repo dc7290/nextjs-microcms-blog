@@ -16,6 +16,10 @@
   font-size: 14px;
   border-bottom: 1px solid #e7e7f3;
 
+  a {
+    cursor: pointer;
+  }
+
   a:hover {
     color: #331cbf;
   }

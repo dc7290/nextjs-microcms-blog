@@ -20,10 +20,13 @@ const Component: React.VFC<Props> = ({ banner, id }) => (
       target="banner"
     >
       <picture>
-        <source srcSet={`${banner.image.url}?w=300&fm=webp, ${banner.image.url}?w=600&fm=webp 2x`} type="image/webp" />
+        <source
+          data-srcset={`${banner.image.url}?w=300&fm=webp, ${banner.image.url}?w=600&fm=webp 2x`}
+          type="image/webp"
+        />
         <img
-          className={styles.image}
-          src={banner.image.url}
+          className={'lazyload ' + styles.image}
+          data-src={banner.image.url}
           alt={banner.alt}
           width={banner.image.width}
           height={banner.image.height}
