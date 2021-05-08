@@ -1,0 +1,18 @@
+.container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: -120px;
+}
+.status {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 120px;
+  font-weight: bold;
+  color: #999;
+}
+.message {
+  color: #999;
+  font-size: 20px;
+}

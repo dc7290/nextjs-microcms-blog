@@ -3,12 +3,13 @@ import { AspidaClient, dataToURLString } from 'aspida'
 import { Methods as Methods0 } from './authors'
 import { Methods as Methods1 } from './banner'
 import { Methods as Methods2 } from './blog'
-import { Methods as Methods3 } from './categories'
-import { Methods as Methods4 } from './partners'
-import { Methods as Methods5 } from './popular-articles'
+import { Methods as Methods3 } from './blog/_slug@string'
+import { Methods as Methods4 } from './categories'
+import { Methods as Methods5 } from './partners'
+import { Methods as Methods6 } from './popular-articles'
 
 const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
-  const prefix = (baseURL === undefined ? 'https://undefined.microcms.io/api/v1' : baseURL).replace(/\/$/, '')
+  const prefix = (baseURL === undefined ? 'https://clone-microcms.microcms.io/api/v1' : baseURL).replace(/\/$/, '')
   const PATH0 = '/authors'
   const PATH1 = '/banner'
   const PATH2 = '/blog'
@@ -35,6 +36,18 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
         `${prefix}${PATH1}${option && option.query ? `?${dataToURLString(option.query)}` : ''}`
     },
     blog: {
+      _slug: (val1: string) => {
+        const prefix1 = `${PATH2}/${val1}`
+
+        return {
+          get: (option: { query?: Methods3['get']['query'], headers: Methods3['get']['reqHeaders'], config?: T }) =>
+            fetch<Methods3['get']['resBody']>(prefix, prefix1, GET, option).json(),
+          $get: (option: { query?: Methods3['get']['query'], headers: Methods3['get']['reqHeaders'], config?: T }) =>
+            fetch<Methods3['get']['resBody']>(prefix, prefix1, GET, option).json().then(r => r.body),
+          $path: (option?: { method?: 'get'; query: Methods3['get']['query'] }) =>
+            `${prefix}${prefix1}${option && option.query ? `?${dataToURLString(option.query)}` : ''}`
+        }
+      },
       get: (option: { query?: Methods2['get']['query'], headers: Methods2['get']['reqHeaders'], config?: T }) =>
         fetch<Methods2['get']['resBody']>(prefix, PATH2, GET, option).json(),
       $get: (option: { query?: Methods2['get']['query'], headers: Methods2['get']['reqHeaders'], config?: T }) =>
@@ -43,27 +56,27 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
         `${prefix}${PATH2}${option && option.query ? `?${dataToURLString(option.query)}` : ''}`
     },
     categories: {
-      get: (option: { query?: Methods3['get']['query'], headers: Methods3['get']['reqHeaders'], config?: T }) =>
-        fetch<Methods3['get']['resBody']>(prefix, PATH3, GET, option).json(),
-      $get: (option: { query?: Methods3['get']['query'], headers: Methods3['get']['reqHeaders'], config?: T }) =>
-        fetch<Methods3['get']['resBody']>(prefix, PATH3, GET, option).json().then(r => r.body),
-      $path: (option?: { method?: 'get'; query: Methods3['get']['query'] }) =>
+      get: (option: { query?: Methods4['get']['query'], headers: Methods4['get']['reqHeaders'], config?: T }) =>
+        fetch<Methods4['get']['resBody']>(prefix, PATH3, GET, option).json(),
+      $get: (option: { query?: Methods4['get']['query'], headers: Methods4['get']['reqHeaders'], config?: T }) =>
+        fetch<Methods4['get']['resBody']>(prefix, PATH3, GET, option).json().then(r => r.body),
+      $path: (option?: { method?: 'get'; query: Methods4['get']['query'] }) =>
         `${prefix}${PATH3}${option && option.query ? `?${dataToURLString(option.query)}` : ''}`
     },
     partners: {
-      get: (option: { query?: Methods4['get']['query'], headers: Methods4['get']['reqHeaders'], config?: T }) =>
-        fetch<Methods4['get']['resBody']>(prefix, PATH4, GET, option).json(),
-      $get: (option: { query?: Methods4['get']['query'], headers: Methods4['get']['reqHeaders'], config?: T }) =>
-        fetch<Methods4['get']['resBody']>(prefix, PATH4, GET, option).json().then(r => r.body),
-      $path: (option?: { method?: 'get'; query: Methods4['get']['query'] }) =>
+      get: (option: { query?: Methods5['get']['query'], headers: Methods5['get']['reqHeaders'], config?: T }) =>
+        fetch<Methods5['get']['resBody']>(prefix, PATH4, GET, option).json(),
+      $get: (option: { query?: Methods5['get']['query'], headers: Methods5['get']['reqHeaders'], config?: T }) =>
+        fetch<Methods5['get']['resBody']>(prefix, PATH4, GET, option).json().then(r => r.body),
+      $path: (option?: { method?: 'get'; query: Methods5['get']['query'] }) =>
         `${prefix}${PATH4}${option && option.query ? `?${dataToURLString(option.query)}` : ''}`
     },
     popular_articles: {
-      get: (option: { query?: Methods5['get']['query'], headers: Methods5['get']['reqHeaders'], config?: T }) =>
-        fetch<Methods5['get']['resBody']>(prefix, PATH5, GET, option).json(),
-      $get: (option: { query?: Methods5['get']['query'], headers: Methods5['get']['reqHeaders'], config?: T }) =>
-        fetch<Methods5['get']['resBody']>(prefix, PATH5, GET, option).json().then(r => r.body),
-      $path: (option?: { method?: 'get'; query: Methods5['get']['query'] }) =>
+      get: (option: { query?: Methods6['get']['query'], headers: Methods6['get']['reqHeaders'], config?: T }) =>
+        fetch<Methods6['get']['resBody']>(prefix, PATH5, GET, option).json(),
+      $get: (option: { query?: Methods6['get']['query'], headers: Methods6['get']['reqHeaders'], config?: T }) =>
+        fetch<Methods6['get']['resBody']>(prefix, PATH5, GET, option).json().then(r => r.body),
+      $path: (option?: { method?: 'get'; query: Methods6['get']['query'] }) =>
         `${prefix}${PATH5}${option && option.query ? `?${dataToURLString(option.query)}` : ''}`
     }
   }

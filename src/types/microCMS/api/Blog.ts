@@ -3,6 +3,7 @@ import { Image, RichEdit, TextField } from '../Sceme'
 
 import { Author } from './Author'
 import { Category } from './Category'
+import { Partner } from './Partner'
 
 export type Blog = {
   title: TextField
@@ -11,6 +12,7 @@ export type Blog = {
   body: RichEdit
   description: TextField
   ogimage: Image
-  writer: Author
+  writer: Author | null
+  partner: Partner | null
   related_blogs: Blog[]
 } & MicroCMSCommonValue
