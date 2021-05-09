@@ -1,5 +1,7 @@
 import React, { useMemo } from 'react'
 
+import { domainName } from '~/src/utils/meta'
+
 import styles from './Share.module.css'
 
 type ContainerProps = {
@@ -30,7 +32,6 @@ const Component: React.VFC<Props> = ({ shareList }) => (
 )
 
 const Container: React.VFC<ContainerProps> = ({ id, title }) => {
-  const domainName = ''
   const shareList: Props['shareList'] = useMemo(
     () => [
       {

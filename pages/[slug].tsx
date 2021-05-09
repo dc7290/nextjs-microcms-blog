@@ -1,11 +1,13 @@
 import hljs from 'highlight.js'
 import { JSDOM } from 'jsdom'
 import type { GetStaticPaths, GetStaticPathsResult, GetStaticProps, NextPage } from 'next'
+import Head from 'next/head'
 
 import { BlogDetailLayout } from '~/src/components/BlogDetailLayout'
 import { BlogDetailLayoutProps } from '~/src/components/BlogDetailLayout/BlogDetailLayout'
 import { apiClient } from '~/src/utils/apiClient'
 import { getContents } from '~/src/utils/getContents'
+import { DESCRIPTION, OG_DESCRIPTION, OG_IMAGE, OG_TITLE, returnTitle } from '~/src/utils/meta'
 import { headers } from '~/src/utils/microCMSHeaders'
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -43,7 +45,7 @@ const processingDom = (htmlString: string) => {
     element.src = ''
   })
 
-  return { toc }
+  return { body: dom.window.document.body.innerHTML, toc }
 }
 
 type Props = BlogDetailLayoutProps
@@ -60,7 +62,8 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params, preview, p
       draftKey: preview ? previewData.draftKey : undefined,
     },
   })
-  const { toc } = processingDom(content.body)
+  const { body, toc } = processingDom(content.body)
+  content.body = body
 
   return {
     props: { ...contents, content, toc, latestArticles: contents.contents },
@@ -68,7 +71,21 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params, preview, p
 }
 
 const IndexPage: NextPage<Props> = (props) => {
-  return <BlogDetailLayout {...props} />
+  const title = returnTitle(props.content.title)
+  const description = props.content.description
+
+  return (
+    <>
+      <Head>
+        <title>{title}</title>
+        <meta key={OG_TITLE} property={OG_TITLE} content={title} />
+        <meta key={DESCRIPTION} name={DESCRIPTION} content={description} />
+        <meta key={OG_DESCRIPTION} property={OG_DESCRIPTION} content={description} />
+        <meta key={OG_IMAGE} property={OG_IMAGE} content={props.content.ogimage.url} />
+      </Head>
+      <BlogDetailLayout {...props} />
+    </>
+  )
 }
 
 export default IndexPage

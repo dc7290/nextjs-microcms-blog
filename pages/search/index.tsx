@@ -1,4 +1,5 @@
 import type { GetStaticProps, NextPage } from 'next'
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
 
@@ -9,6 +10,7 @@ import { LayoutProps } from '~/src/components/Layout/Layout'
 import { Search } from '~/src/components/Search'
 import styles from '~/src/styles/pages/search.module.css'
 import { getContents } from '~/src/utils/getContents'
+import { OG_TITLE, returnTitle } from '~/src/utils/meta'
 
 type Props = LayoutProps
 
@@ -19,6 +21,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     props: { banner, categories, popularArticles },
   }
 }
+
+const title = returnTitle('検索結果')
 
 const SearchPage: NextPage<Props> = (props) => {
   const router = useRouter()
@@ -32,16 +36,22 @@ const SearchPage: NextPage<Props> = (props) => {
   }
 
   return (
-    <Layout {...props}>
-      <Search isShowText={false} />
-      {data === undefined ? (
-        <div v-if="loading === true" className={styles.loader}>
-          <img className={styles.loadingIcon} src="/images/icon_loading.svg" alt="検索中..." />
-        </div>
-      ) : (
-        <BlogList contents={data.contents} />
-      )}
-    </Layout>
+    <>
+      <Head>
+        <title>{title}</title>
+        <meta key={OG_TITLE} property={OG_TITLE} content={title} />
+      </Head>
+      <Layout {...props}>
+        <Search isShowText={false} />
+        {data === undefined ? (
+          <div v-if="loading === true" className={styles.loader}>
+            <img className={styles.loadingIcon} src="/images/icon_loading.svg" alt="検索中..." />
+          </div>
+        ) : (
+          <BlogList contents={data.contents} />
+        )}
+      </Layout>
+    </>
   )
 }
 
