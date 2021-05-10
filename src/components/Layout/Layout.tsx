@@ -4,7 +4,7 @@ import React from 'react'
 import { Banner as ApiBanner } from '~/src/types/microCMS/api/Banner'
 import { Blog } from '~/src/types/microCMS/api/Blog'
 import { Category } from '~/src/types/microCMS/api/Category'
-import { DESCRIPTION, domainName, OG_DESCRIPTION, OG_IMAGE, OG_TYPE } from '~/src/utils/meta'
+import { DESCRIPTION, SITE_URL, OG_DESCRIPTION, OG_IMAGE, OG_TYPE } from '~/src/utils/meta'
 
 import { Banner } from '../Banner'
 import { Categories } from '../Categories'
@@ -35,7 +35,7 @@ const Component: React.FC<Props> = ({ banner, categories, children, popularArtic
       <meta key={DESCRIPTION} name={DESCRIPTION} content={description} />
       <meta key={OG_DESCRIPTION} property={OG_DESCRIPTION} content={description} />
       <meta key={OG_TYPE} property={OG_TYPE} content="website" />
-      <meta key={OG_IMAGE} property={OG_IMAGE} content={`https://${domainName}/og.png`} />
+      <meta key={OG_IMAGE} property={OG_IMAGE} content={`${SITE_URL}/og.png`} />
       <meta name="twitter:card" content="summary_large_image" />
     </Head>
     <Header />
