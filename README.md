@@ -111,6 +111,7 @@ type: オブジェクト形式
 - API_KEY（microCMS の API キー）
 - SERVICE_ID（microCMS のサービス ID）
 - NEXT_PUBLIC_GOOGLE_ANALYTICS_ID（Google Analytics の ID）
+- NEXT_PUBLIC_SITE_URL
 - NEXT_PUBLIC_BASE_PATH（BasePath が'/'なら空白で大丈夫です）
 
 例:
@@ -118,8 +119,9 @@ type: オブジェクト形式
 ```
 API_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 SERVICE_ID=your-service-id
-NEXT_PUBLIC_GOOGLE_ANALYTICS_ID=/test
-NEXT_PUBLIC_BASE_PATH=G-xxxxxxxxxx
+NEXT_PUBLIC_GOOGLE_ANALYTICS_ID=G-xxxxxxxxxx
+NEXT_PUBLIC_SITE_URL=https://blog.microcms.io
+NEXT_PUBLIC_BASE_PATH=/test
 ```
 
 ## 開発方法

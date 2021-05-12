@@ -7,7 +7,7 @@ import { getContents, limit } from '~/src/utils/getContents'
 import { OG_TITLE, returnTitle } from '~/src/utils/meta'
 import { headers } from '~/src/utils/microCMSHeaders'
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getAllCategoryPagePaths = async () => {
   const { contents: categories } = await apiClient.categories.$get({ headers })
   const [paths] = await Promise.all(
     categories.map((category) =>
@@ -23,6 +23,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
         })
     )
   )
+
+  return paths
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = await getAllCategoryPagePaths()
 
   return {
     paths,
