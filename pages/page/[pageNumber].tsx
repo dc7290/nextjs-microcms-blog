@@ -5,13 +5,19 @@ import BlogListLayout, { BlogListLayoutProps } from '~/src/components/BlogListLa
 import { getContents } from '~/src/utils/getContents'
 import { OG_TITLE, returnTitle } from '~/src/utils/meta'
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getAllPagePaths = async () => {
   const { pager } = await getContents()
   const paths = pager.map((pageNumber) => ({
     params: {
       pageNumber: (pageNumber + 1).toString(),
     },
   }))
+
+  return paths
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = await getAllPagePaths()
 
   return {
     paths,

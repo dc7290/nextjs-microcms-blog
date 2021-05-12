@@ -1,6 +1,6 @@
 import hljs from 'highlight.js'
 import { JSDOM } from 'jsdom'
-import type { GetStaticPaths, GetStaticPathsResult, GetStaticProps, NextPage } from 'next'
+import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 
 import { BlogDetailLayout } from '~/src/components/BlogDetailLayout'
@@ -10,13 +10,19 @@ import { getContents } from '~/src/utils/getContents'
 import { DESCRIPTION, OG_DESCRIPTION, OG_IMAGE, OG_TITLE, returnTitle } from '~/src/utils/meta'
 import { headers } from '~/src/utils/microCMSHeaders'
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getAllSlugPaths = async () => {
   const { contents } = await getContents()
-  const paths: GetStaticPathsResult['paths'] = contents.map((content) => ({
+  const paths = contents.map((content) => ({
     params: {
       slug: content.id,
     },
   }))
+
+  return paths
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = await getAllSlugPaths()
 
   return {
     paths,

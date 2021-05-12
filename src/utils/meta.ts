@@ -4,9 +4,13 @@ export const OG_DESCRIPTION = 'og:description'
 export const OG_TYPE = 'og:type'
 export const OG_IMAGE = 'og:image'
 
-export const domainName = ''
+if (process.env.NEXT_PUBLIC_SITE_URL === undefined) {
+  throw Error('envファイルにNEXT_PUBLIC_SITE_URLを設定してください。')
+}
 
-const title = ''
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL
+
+const title = 'microCMSブログ'
 
 export const returnTitle = (pageTitle?: string) => {
   if (pageTitle !== undefined) {

@@ -1,5 +1,6 @@
 import '~/src/styles/reset.css'
 import '~/src/styles/colors.css'
+import 'highlight.js/styles/hybrid.css'
 
 import { AppProps } from 'next/app'
 
