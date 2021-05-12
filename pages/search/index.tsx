@@ -44,9 +44,11 @@ const SearchPage: NextPage<Props> = (props) => {
       <Layout {...props}>
         <Search isShowText={false} />
         {data === undefined ? (
-          <div v-if="loading === true" className={styles.loader}>
+          <div className={styles.loader}>
             <img className={styles.loadingIcon} src="/images/icon_loading.svg" alt="検索中..." />
           </div>
+        ) : data.contents.length === 0 ? (
+          <div className={styles.loader}>記事がありません</div>
         ) : (
           <BlogList contents={data.contents} />
         )}

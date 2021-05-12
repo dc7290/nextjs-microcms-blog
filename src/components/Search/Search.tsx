@@ -28,6 +28,9 @@ const Container: React.VFC<ContainerProps> = (props) => {
 
   const router = useRouter()
   const handleKeyPress: Props['onKeyPress'] = (event) => {
+    if (value === '') {
+      return
+    }
     if (event.key === 'Enter') {
       router.push({
         pathname: pagesPath.search.$url().pathname,
