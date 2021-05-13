@@ -15,6 +15,7 @@ const generateSitemap = async () => {
     '!pages/_*.tsx',
     '!pages/**/[*.tsx',
     '!pages/sitemap.xml.tsx',
+    '!pages/feed.xml.tsx',
     '!pages/404.tsx',
     '!pages/api',
   ])
