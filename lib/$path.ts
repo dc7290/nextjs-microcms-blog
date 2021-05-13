@@ -15,6 +15,9 @@ export const pagesPath = {
       }
     })
   },
+  feed_xml: {
+    $url: (url?: { hash?: string }) => ({ pathname: '/feed.xml' as const, hash: url?.hash })
+  },
   page: {
     _pageNumber: (pageNumber: string | number) => ({
       $url: (url?: { hash?: string }) => ({ pathname: '/page/[pageNumber]' as const, query: { pageNumber }, hash: url?.hash })

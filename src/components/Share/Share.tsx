@@ -49,11 +49,11 @@ const Container: React.VFC<ContainerProps> = ({ id, title }) => {
         src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/icon_hatena.svg`,
         alt: 'はてなブックマーク',
       },
-      // {
-      //   href: `${SITE_URL}/feed.xml`,
-      //   src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/icon_feed.svg`,
-      //   alt: 'フィード',
-      // },
+      {
+        href: `${SITE_URL}/feed.xml`,
+        src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/icon_feed.svg`,
+        alt: 'フィード',
+      },
     ],
     [id, title]
   )

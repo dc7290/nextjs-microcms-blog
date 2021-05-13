@@ -11,6 +11,7 @@ if (process.env.NEXT_PUBLIC_SITE_URL === undefined) {
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL
 
 const title = 'microCMSブログ'
+export const description = ''
 
 export const returnTitle = (pageTitle?: string) => {
   if (pageTitle !== undefined) {
