@@ -1,3 +1,8 @@
+# 公式microCMSブログ
+
+サイト: https://blog.microcms.io/
+ソースコード: https://github.com/wantainc/microcms-blog
+
 ## 機能
 
 - 記事一覧
@@ -15,10 +20,10 @@
 - バナー
 - Google Analytics
 - サイトマップ
+- RSS
 
 ## 追加予定機能
 
-- RSS
 - PWA
 
 ## 技術構成
