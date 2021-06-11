@@ -9,7 +9,7 @@ import { headers } from '~/src/utils/microCMSHeaders'
 
 export const getAllCategoryPagePaths = async () => {
   const { contents: categories } = await apiClient.categories.$get({ headers })
-  const [paths] = await Promise.all(
+  const paths = await Promise.all(
     categories.map((category) =>
       apiClient.blog
         .$get({ headers, query: { filters: `category[equals]${category.id}`, limit: 1 } })
@@ -24,7 +24,7 @@ export const getAllCategoryPagePaths = async () => {
     )
   )
 
-  return paths
+  return paths.flat()
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
