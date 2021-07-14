@@ -1,5 +1,4 @@
-import hljs from 'highlight.js'
-import { JSDOM } from 'jsdom'
+import { processer, createTableOfContents } from 'microcms-richedit-processer'
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 
@@ -30,28 +29,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-const processingDom = (htmlString: string) => {
-  const dom = new JSDOM(htmlString)
-  const toc: BlogDetailLayoutProps['toc'] = []
-  dom.window.document.querySelectorAll('h1, h2, h3').forEach((heading) => {
-    toc.push({
-      id: heading.id,
-      name: heading.tagName,
-      text: heading.textContent ?? '',
-    })
-  })
-  dom.window.document.querySelectorAll('pre code').forEach((element) => {
-    const res = hljs.highlightAuto(element.textContent ?? '')
-    element.innerHTML = res.value
-    element.classList.add('hljs')
-  })
-  dom.window.document.querySelectorAll('img').forEach((element) => {
-    element.classList.add('lazyload')
-    element.setAttribute('data-src', element.src)
-    element.src = ''
-  })
-
-  return { body: dom.window.document.body.innerHTML, toc }
+const processingDom = async (htmlString: string) => {
+  return {
+    body: await processer(htmlString, { code: { enabled: true } }),
+    toc: createTableOfContents(htmlString, { tags: 'h1 h2 h3' }),
+  }
 }
 
 type Props = BlogDetailLayoutProps
@@ -68,7 +50,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params, preview, p
       draftKey: preview ? (previewData as { [key: string]: string }).draftKey : undefined,
     },
   })
-  const { body, toc } = processingDom(content.body)
+  const { body, toc } = await processingDom(content.body)
   content.body = body
 
   return {
