@@ -1,13 +1,22 @@
 /* eslint-disable */
+// prettier-ignore
 import { AspidaClient, dataToURLString } from 'aspida'
+// prettier-ignore
 import { Methods as Methods0 } from './authors'
+// prettier-ignore
 import { Methods as Methods1 } from './banner'
+// prettier-ignore
 import { Methods as Methods2 } from './blog'
+// prettier-ignore
 import { Methods as Methods3 } from './blog/_slug@string'
+// prettier-ignore
 import { Methods as Methods4 } from './categories'
+// prettier-ignore
 import { Methods as Methods5 } from './partners'
+// prettier-ignore
 import { Methods as Methods6 } from './popular-articles'
 
+// prettier-ignore
 const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
   const prefix = (baseURL === undefined ? 'https://clone-microcms.microcms.io/api/v1' : baseURL).replace(/\/$/, '')
   const PATH0 = '/authors'
@@ -82,5 +91,7 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
   }
 }
 
+// prettier-ignore
 export type ApiInstance = ReturnType<typeof api>
+// prettier-ignore
 export default api

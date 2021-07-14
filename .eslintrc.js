@@ -7,13 +7,9 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
-    'plugin:jsx-a11y/recommended',
-    'plugin:import/typescript',
+    'next',
     // 競合を避けるため、prettierは一番最後に書く
     'plugin:prettier/recommended',
-    'prettier/@typescript-eslint',
   ],
   globals: {
     Atomics: 'readonly',
@@ -38,7 +34,7 @@ module.exports = {
       },
     },
   },
-  plugins: ['jsx-a11y', 'import'],
+  plugins: [],
   rules: {
     // prettier の設定
     'prettier/prettier': [
@@ -103,5 +99,7 @@ module.exports = {
     'react/destructuring-assignment': 'off',
     // console.errorを許容する
     'no-console': ['error', { allow: ['warn', 'error'] }],
+    // next/imageを使わないことを許容する
+    '@next/next/no-img-element': 0,
   },
 }

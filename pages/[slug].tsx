@@ -65,7 +65,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params, preview, p
     headers,
     query: {
       depth: 2,
-      draftKey: preview ? previewData.draftKey : undefined,
+      draftKey: preview ? (previewData as { [key: string]: string }).draftKey : undefined,
     },
   })
   const { body, toc } = processingDom(content.body)

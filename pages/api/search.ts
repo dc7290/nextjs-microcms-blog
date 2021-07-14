@@ -6,7 +6,7 @@ import { headers } from '~/src/utils/microCMSHeaders'
 
 type Data = Methods['get']['resBody']
 
-export default async (req: NextApiRequest, res: NextApiResponse<Data>) => {
+const search = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   if (typeof req.query.q !== 'string') {
     res.status(404).end()
     return
@@ -21,3 +21,5 @@ export default async (req: NextApiRequest, res: NextApiResponse<Data>) => {
 
   res.status(200).json({ ...data })
 }
+
+export default search
