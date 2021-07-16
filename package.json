@@ -17,9 +17,14 @@
     "tsc": "tsc",
     "prepare": "husky install"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "next lint --fix",
+      "next lint . --cache --fix",
       "prettier --write"
     ]
   },
