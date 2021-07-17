@@ -12,15 +12,11 @@
     "start": "next start",
     "test": "jest",
     "fix": "prettier --write './**/*.{js,jsx,ts,tsx}'",
+    "lint-staged": "lint-staged",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "tsc": "tsc",
     "prepare": "husky install"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "lint-staged": {
     "*.{ts,tsx}": [
