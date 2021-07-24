@@ -1,9 +1,9 @@
 const withPlugins = require('next-compose-plugins')
-const bundleAnalyzer = require('@next/bundle-analyzer')({ enabled: process.env.ANALYZE === 'true' })
+const withBundleAnalyzer = require('@next/bundle-analyzer')({ enabled: process.env.ANALYZE === 'true' })
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH
 
-const config = {
+module.exports = withPlugins([[withBundleAnalyzer]], {
   reactStrictMode: true,
   future: {
     strictPostcssConfiguration: true,
@@ -14,6 +14,4 @@ const config = {
     loader: 'imgix',
     path: '',
   },
-}
-
-module.exports = process.env.ANALYZE ? withPlugins([[bundleAnalyzer]], config) : config
+})

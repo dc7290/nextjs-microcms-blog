@@ -8,6 +8,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'next',
+    'next/core-web-vitals',
     // 競合を避けるため、prettierは一番最後に書く
     'plugin:prettier/recommended',
   ],
