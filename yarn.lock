@@ -4519,15 +4519,15 @@ merge2@^1.3.0:
   resolved "https://registry.yarnpkg.com/merge2/-/merge2-1.4.1.tgz#4368892f885e907455a6fd7dc55c0c9d404990ae"
   integrity sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==
 
-microcms-richedit-processer@1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/microcms-richedit-processer/-/microcms-richedit-processer-1.0.2.tgz#b30a0859db97babb002546373457f75f8127dad0"
-  integrity sha512-eZeRmCfQ0da0OiUTMzW0BvPG4K0g8m8vy4Zvy6TeQC7MZGr2b0j7v/qT7KnQvatIhJwtKuUXWpo1p8VEIlWg3g==
+microcms-richedit-processer@1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/microcms-richedit-processer/-/microcms-richedit-processer-1.0.3.tgz#e2653e39bd549f28e07cfc66ed747d7292fb8868"
+  integrity sha512-z70q5pWkLfLvd/fRJmjx8/9LNNqAE9/twF6gnkrKc2VUEaDX+I0ZDkiyprN3Z/1/DdpOLDYpGP+J19Jik2pXqA==
   dependencies:
     deepmerge "4.2.2"
     image-size "1.0.0"
     node-fetch "2.6.1"
-    node-html-parser "4.1.0"
+    node-html-parser "4.1.3"
     ts-imgix "0.0.15"
 
 micromatch@^4.0.2:
@@ -4752,10 +4752,10 @@ node-html-parser@1.4.9:
   dependencies:
     he "1.2.0"
 
-node-html-parser@4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/node-html-parser/-/node-html-parser-4.1.0.tgz#9c23130609e203030113255c519ff2d3fbbfc439"
-  integrity sha512-sqSaqyrg1mqsRTl0r0h4UVAHBoW605rSpanOz0Yr7NzERl0fJ1eh6CRoZFcIXEIyzD3QJfGqsIMP+kzkViTiAA==
+node-html-parser@4.1.3:
+  version "4.1.3"
+  resolved "https://registry.yarnpkg.com/node-html-parser/-/node-html-parser-4.1.3.tgz#993f42273c97bc0b1171f3c7e4d2f7959defc96a"
+  integrity sha512-jWFd9TBxDJ0hXkvPKxiWXy4R87ZoIjYj5P2twbef3q/E4vJyFt8TTRQ68ssHYW5Aozwth4SWHOPT6yfDd/gzQQ==
   dependencies:
     css-select "^4.1.3"
     he "1.2.0"
