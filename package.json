@@ -36,7 +36,7 @@
     "react-scroll": "1.8.3",
     "react-use": "17.2.4",
     "rss": "1.2.2",
-    "swr": "0.5.6"
+    "swr": "0.5.7"
   },
   "devDependencies": {
     "@babel/core": "7.15.0",
