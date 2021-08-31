@@ -43,7 +43,7 @@
     "@next/bundle-analyzer": "11.0.1",
     "@testing-library/jest-dom": "5.14.1",
     "@testing-library/react": "12.0.0",
-    "@testing-library/react-hooks": "7.0.1",
+    "@testing-library/react-hooks": "7.0.2",
     "@types/react": "17.0.17",
     "@types/react-scroll": "1.8.3",
     "@types/rss": "0.0.29",
