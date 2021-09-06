@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@aspida/axios": "1.7.1",
-    "axios": "0.21.1",
+    "axios": "0.21.4",
     "dayjs": "1.10.6",
     "highlight.js": "11.2.0",
     "microcms-richedit-processer": "1.0.3",
