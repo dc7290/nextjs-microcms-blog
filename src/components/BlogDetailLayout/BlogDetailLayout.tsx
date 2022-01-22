@@ -1,8 +1,9 @@
+import { MicroCMSListContent, MicroCMSListResponse } from 'microcms-js-sdk'
 import React from 'react'
 
-import { Banner } from '~/src/types/microCMS/api/Banner'
-import { Blog } from '~/src/types/microCMS/api/Blog'
-import { Category } from '~/src/types/microCMS/api/Category'
+import { Banner } from '~/src/types/microCMS/Banner'
+import { Blog } from '~/src/types/microCMS/Blog'
+import { Category } from '~/src/types/microCMS/Category'
 
 import { Breadcrumb } from '../Breadcrumb'
 import { Conversion } from '../Conversion'
@@ -20,11 +21,11 @@ import styles from './BlogDetailLayout.module.css'
 
 type ContainerProps = {
   banner: Banner
-  categories: Category[]
-  content: Blog
+  categories: MicroCMSListResponse<Category>['contents']
+  content: Blog & MicroCMSListContent
   toc: TocProps['toc']
-  popularArticles: Blog[]
-  latestArticles: Blog[]
+  popularArticles: MicroCMSListResponse<Blog>['contents']
+  latestArticles: MicroCMSListResponse<Blog>['contents']
 }
 
 export type { ContainerProps as BlogDetailLayoutProps }

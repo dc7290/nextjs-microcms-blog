@@ -1,21 +1,22 @@
+import { MicroCMSListResponse } from 'microcms-js-sdk'
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
 
-import { Methods } from '~/src/api/blog'
 import { BlogList } from '~/src/components/BlogList'
 import { Layout } from '~/src/components/Layout'
 import { LayoutProps } from '~/src/components/Layout/Layout'
 import { Search } from '~/src/components/Search'
 import styles from '~/src/styles/pages/search.module.css'
-import { getContents } from '~/src/utils/getContents'
+import { Blog } from '~/src/types/microCMS/Blog'
 import { OG_TITLE, returnTitle } from '~/src/utils/meta'
+import { getGlobalContents } from '~/src/utils/microCMS/getContents'
 
 type Props = LayoutProps
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const { banner, categories, popularArticles } = await getContents()
+  const { banner, categories, popularArticles } = await getGlobalContents()
 
   return {
     props: { banner, categories, popularArticles },
@@ -26,7 +27,7 @@ const title = returnTitle('検索結果')
 
 const SearchPage: NextPage<Props> = (props) => {
   const router = useRouter()
-  const { data, error } = useSWR<Methods['get']['resBody']>(`/api/search?q=${router.query.q}`, (url) =>
+  const { data, error } = useSWR<MicroCMSListResponse<Blog>>(`/api/search?q=${router.query.q}`, (url) =>
     fetch(url).then((res) => res.json())
   )
 

@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import React, { ChangeEventHandler, KeyboardEventHandler, useState } from 'react'
 
-import { pagesPath } from '~/lib/$path'
+import { pagesPath } from '~/src/utils/$path'
 
 import styles from './Search.module.css'
 

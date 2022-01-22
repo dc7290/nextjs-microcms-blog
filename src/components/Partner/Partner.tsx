@@ -1,11 +1,12 @@
+import { MicroCMSListResponse } from 'microcms-js-sdk'
 import React from 'react'
 
-import { Partner } from '~/src/types/microCMS/api/Partner'
+import { Partner } from '~/src/types/microCMS/Partner'
 
 import styles from './Partner.module.css'
 
 type ContainerProps = {
-  partner: Partner
+  partner: MicroCMSListResponse<Partner>['contents'][number]
 }
 
 type Props = ContainerProps

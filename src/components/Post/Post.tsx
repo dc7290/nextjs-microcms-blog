@@ -1,11 +1,9 @@
 import React from 'react'
 
-import { RichEdit } from '~/src/types/microCMS/Sceme'
-
 import styles from './Post.module.css'
 
 type ContainerProps = {
-  body: RichEdit
+  body: string
 }
 
 type Props = ContainerProps

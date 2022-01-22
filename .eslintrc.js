@@ -7,10 +7,9 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    'next',
     'next/core-web-vitals',
     // 競合を避けるため、prettierは一番最後に書く
-    'plugin:prettier/recommended',
+    'prettier',
   ],
   globals: {
     Atomics: 'readonly',
@@ -37,24 +36,11 @@ module.exports = {
   },
   plugins: [],
   rules: {
-    // prettier の設定
-    'prettier/prettier': [
-      'error',
-      {
-        trailingComma: 'es5',
-        tabWidth: 2,
-        semi: false,
-        singleQuote: true,
-        printWidth: 120,
-      },
-    ],
     // React Hooks のための設定
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     // prop types を使っていないので off
     'react/prop-types': 'off',
-    // Next.js では React を import しなくてもよいので off にする
-    'react/react-in-jsx-scope': 'off',
     // 関数の引数や返り値に必ず型をつけるルールを off にする
     // アプリケーションをより堅牢にしたい場合は、このルールを on にしてください
     '@typescript-eslint/explicit-module-boundary-types': 'off',

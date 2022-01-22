@@ -4,13 +4,11 @@ import Head from 'next/head'
 
 import { BlogDetailLayout } from '~/src/components/BlogDetailLayout'
 import { BlogDetailLayoutProps } from '~/src/components/BlogDetailLayout/BlogDetailLayout'
-import { apiClient } from '~/src/utils/apiClient'
-import { getContents } from '~/src/utils/getContents'
 import { DESCRIPTION, OG_DESCRIPTION, OG_IMAGE, OG_TITLE, returnTitle } from '~/src/utils/meta'
-import { headers } from '~/src/utils/microCMSHeaders'
+import { getBlog, getGlobalContents } from '~/src/utils/microCMS/getContents'
 
 export const getAllSlugPaths = async () => {
-  const { contents } = await getContents()
+  const { contents } = await getGlobalContents()
   const paths = contents.map((content) => ({
     params: {
       slug: content.id,
@@ -42,14 +40,11 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params, preview, p
   if (params === undefined || typeof params.slug !== 'string')
     throw Error('pagesのディレクトリ構造かファイル名が間違っています。')
 
-  const contents = await getContents()
-  const content = await apiClient.blog._slug(params.slug).$get({
-    headers,
-    query: {
-      depth: 2,
-      draftKey: preview ? (previewData as { [key: string]: string }).draftKey : undefined,
-    },
-  })
+  const contents = await getGlobalContents()
+  const content = await getBlog({
+    depth: 2,
+    draftKey: preview ? (previewData as { [key: string]: string }).draftKey : undefined,
+  })(params.slug)
   const { body, toc } = await processingDom(content.body)
   content.body = body
 

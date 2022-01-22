@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Author } from '~/src/types/microCMS/api/Author'
+import { Author } from '~/src/types/microCMS/Author'
 
 import styles from './Writer.module.css'
 

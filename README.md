@@ -1,4 +1,4 @@
-# 公式microCMSブログ
+# 公式 microCMS ブログ
 
 サイト: https://blog.microcms.io/
 ソースコード: https://github.com/wantainc/microcms-blog
@@ -111,22 +111,22 @@ type: オブジェクト形式
 
 ## 環境変数
 
-プロジェクトルートに`.env.local`ファイルを作成し、以下の項目を設定してください。
+プロジェクトルートに`.env`ファイルを作成し、以下の項目を設定してください。
 
-- API_KEY（microCMS の API キー）
-- SERVICE_ID（microCMS のサービス ID）
+- NEXT_PUBLIC_API_KEY（microCMS の API キー）
+- NEXT_PUBLIC_SERVICE_ID（microCMS のサービス ID）
 - NEXT_PUBLIC_GOOGLE_ANALYTICS_ID（Google Analytics の ID）
 - NEXT_PUBLIC_SITE_URL
 - NEXT_PUBLIC_BASE_PATH（BasePath が'/'なら空白で大丈夫です）
 
 例:
 
-```
+```env
 API_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 SERVICE_ID=your-service-id
 NEXT_PUBLIC_GOOGLE_ANALYTICS_ID=G-xxxxxxxxxx
 NEXT_PUBLIC_SITE_URL=https://blog.microcms.io
-NEXT_PUBLIC_BASE_PATH=/test
+NEXT_PUBLIC_BASE_PATH=/test(or NEXT_PUBLIC_BASE_PATH=)
 ```
 
 ## 開発方法

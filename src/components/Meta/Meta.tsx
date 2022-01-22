@@ -1,15 +1,14 @@
 import dayjs from 'dayjs'
 import React from 'react'
 
-import { MicroCMSCommonValue } from '~/src/types/microCMS/Common'
-import { Category } from '~/src/types/microCMS/api/Category'
+import { Category } from '~/src/types/microCMS/Category'
 
 import styles from './Meta.module.css'
 
 type ContainerProps = {
   createdAt: string
   author?: string
-  category?: Omit<Category, keyof MicroCMSCommonValue>
+  category?: Category
 }
 
 type Props = ContainerProps

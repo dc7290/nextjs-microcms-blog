@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import { apiClient } from '~/src/utils/apiClient'
-import { headers } from '~/src/utils/microCMSHeaders'
+import { getBlog } from '~/src/utils/microCMS/getContents'
 
 const preview = async (req: NextApiRequest, res: NextApiResponse) => {
   const { draftKey, slug } = req.query
@@ -10,7 +9,7 @@ const preview = async (req: NextApiRequest, res: NextApiResponse) => {
     return
   }
 
-  const data = await apiClient.blog._slug(slug).$get({ headers, query: { fields: 'id', draftKey } })
+  const data = await getBlog({ fields: 'id', draftKey })(slug)
 
   if (!data) {
     return res.status(401).json({ message: 'Invalid slug' })

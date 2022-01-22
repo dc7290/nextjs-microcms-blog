@@ -1,9 +1,10 @@
+import { MicroCMSListContent, MicroCMSListResponse } from 'microcms-js-sdk'
 import Link from 'next/link'
 import React from 'react'
 
-import { pagesPath } from '~/lib/$path'
-import { Blog } from '~/src/types/microCMS/api/Blog'
-import { Category } from '~/src/types/microCMS/api/Category'
+import { Blog } from '~/src/types/microCMS/Blog'
+import { Category } from '~/src/types/microCMS/Category'
+import { pagesPath } from '~/src/utils/$path'
 
 import { Meta } from '../Meta'
 
@@ -11,16 +12,16 @@ import styles from './BlogList.module.css'
 
 type ContainerProps =
   | {
-      contents: Blog[]
+      contents: MicroCMSListResponse<Blog>['contents']
       currentPage: number
       pager: number[]
-      selectedCategory?: Category | null
+      selectedCategory?: (Category & MicroCMSListContent) | null
     }
   | {
-      contents: Blog[]
+      contents: MicroCMSListResponse<Blog>['contents']
       currentPage?: number | null
       pager?: number[] | null
-      selectedCategory?: Category | null
+      selectedCategory?: (Category & MicroCMSListContent) | null
     }
 
 export type { ContainerProps as BlogListProps }
@@ -47,7 +48,7 @@ const Component: React.VFC<Props> = ({ contents, currentPage, pager, selectedCat
                 <dd>
                   <Meta
                     createdAt={content.publishedAt ?? content.createdAt}
-                    author={content.writer !== null ? content.writer.name : ''}
+                    author={content.writer?.name}
                     category={content.category}
                   />
                 </dd>

@@ -1,13 +1,14 @@
+import { MicroCMSListResponse } from 'microcms-js-sdk'
 import Link from 'next/link'
 import React from 'react'
 
-import { pagesPath } from '~/lib/$path'
-import { Category } from '~/src/types/microCMS/api/Category'
+import { Category } from '~/src/types/microCMS/Category'
+import { pagesPath } from '~/src/utils/$path'
 
 import styles from './Categories.module.css'
 
 type ContainerProps = {
-  categories: Category[]
+  categories: MicroCMSListResponse<Category>['contents']
 }
 type Props = ContainerProps
 

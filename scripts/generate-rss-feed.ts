@@ -1,7 +1,7 @@
 import RSS from 'rss'
 
-import { getContents } from '~/src/utils/getContents'
 import { description, returnTitle, SITE_URL } from '~/src/utils/meta'
+import { getGlobalContents } from '~/src/utils/microCMS/getContents'
 
 const generateFeedXml = async () => {
   const feed = new RSS({
@@ -12,7 +12,7 @@ const generateFeedXml = async () => {
     language: 'ja',
   })
 
-  const { contents } = await getContents()
+  const { contents } = await getGlobalContents()
   contents.forEach((content) => {
     feed.item({
       title: returnTitle(content.title),

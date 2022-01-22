@@ -1,13 +1,14 @@
+import { MicroCMSListResponse } from 'microcms-js-sdk'
 import Link from 'next/link'
 import React from 'react'
 
-import { pagesPath } from '~/lib/$path'
-import { Blog } from '~/src/types/microCMS/api/Blog'
+import { Blog } from '~/src/types/microCMS/Blog'
+import { pagesPath } from '~/src/utils/$path'
 
 import styles from './PopularArticles.module.css'
 
 type ContainerProps = {
-  contents: Blog[]
+  contents: MicroCMSListResponse<Blog>['contents']
 }
 
 type Props = ContainerProps

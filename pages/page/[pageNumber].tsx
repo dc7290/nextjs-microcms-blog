@@ -2,11 +2,11 @@ import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 
 import BlogListLayout, { BlogListLayoutProps } from '~/src/components/BlogListLayout/BlogListLayout'
-import { getContents } from '~/src/utils/getContents'
 import { OG_TITLE, returnTitle } from '~/src/utils/meta'
+import { getGlobalContents } from '~/src/utils/microCMS/getContents'
 
 export const getAllPagePaths = async () => {
-  const { pager } = await getContents()
+  const { pager } = await getGlobalContents()
   const paths = pager.map((pageNumber) => ({
     params: {
       pageNumber: (pageNumber + 1).toString(),
@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   if (params === undefined || typeof params.pageNumber !== 'string')
     throw Error('pagesのディレクトリ構造かファイル名が間違っています。')
 
-  const contents = await getContents(Number(params.pageNumber))
+  const contents = await getGlobalContents(Number(params.pageNumber))
 
   return {
     props: { ...contents },
