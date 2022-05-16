@@ -36,7 +36,7 @@
     "swr": "1.1.2"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "12.0.8",
+    "@next/bundle-analyzer": "12.1.6",
     "@types/prettier": "^2.4.3",
     "@types/react": "17.0.38",
     "@types/react-scroll": "1.8.3",
@@ -44,7 +44,7 @@
     "@typescript-eslint/eslint-plugin": "5.10.0",
     "@typescript-eslint/parser": "5.10.0",
     "eslint": "8.7.0",
-    "eslint-config-next": "12.0.8",
+    "eslint-config-next": "12.1.6",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-prettier": "4.0.0",
     "husky": "7.0.4",
