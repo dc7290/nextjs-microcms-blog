@@ -1,6 +1,6 @@
 {
   "name": "nextjs-microcms-blog",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "private": true,
   "scripts": {
     "analyze": "ANALYZE=true yarn build",
@@ -8,6 +8,7 @@
     "dev:next": "next dev",
     "dev:path": "pathpida --output src/utils --watch",
     "build": "pathpida --output src/utils && next build",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "fix": "prettier --write './**/*.{js,jsx,ts,tsx}'",
     "lint-staged": "lint-staged",
@@ -28,6 +29,7 @@
     "microcms-js-sdk": "2.0.0",
     "microcms-richedit-processer": "1.1.0",
     "next": "12.1.6",
+    "next-sitemap": "3.0.5",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-scroll": "1.8.7",
@@ -37,7 +39,6 @@
   },
   "devDependencies": {
     "@next/bundle-analyzer": "12.1.6",
-    "@types/prettier": "^2.6.3",
     "@types/react": "18.0.12",
     "@types/react-scroll": "1.8.3",
     "@types/rss": "0.0.29",
