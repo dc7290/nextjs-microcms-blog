@@ -13,7 +13,7 @@ type ContainerProps = {
 
 type Props = ContainerProps
 
-const Component: React.VFC<Props> = ({ category }) => (
+const Component: React.FC<Props> = ({ category }) => (
   <ul className={styles.breadcrumb}>
     <li className={styles.breadcrumbList}>
       <Link href={pagesPath.$url()}>
@@ -28,7 +28,7 @@ const Component: React.VFC<Props> = ({ category }) => (
   </ul>
 )
 
-const Container: React.VFC<ContainerProps> = (props) => {
+const Container: React.FC<ContainerProps> = (props) => {
   return <Component {...props} />
 }
 

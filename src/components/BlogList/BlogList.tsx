@@ -28,7 +28,7 @@ export type { ContainerProps as BlogListProps }
 
 type Props = ContainerProps
 
-const Component: React.VFC<Props> = ({ contents, currentPage, pager, selectedCategory }) => (
+const Component: React.FC<Props> = ({ contents, currentPage, pager, selectedCategory }) => (
   <>
     <ul>
       {contents.map((content) => (
@@ -81,7 +81,7 @@ const Component: React.VFC<Props> = ({ contents, currentPage, pager, selectedCat
   </>
 )
 
-const Container: React.VFC<ContainerProps> = (props) => {
+const Container: React.FC<ContainerProps> = (props) => {
   return <Component {...props} />
 }
 

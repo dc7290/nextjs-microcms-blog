@@ -11,7 +11,7 @@ type ContainerProps = {
 
 type Props = ContainerProps
 
-const Component: React.VFC<Props> = ({ banner, id }) => (
+const Component: React.FC<Props> = ({ banner, id }) => (
   <div className={styles.wrapper}>
     <a
       href={`${banner.url}?utm_source=CTA&utm_medium=content-text&utm_campaign=${id}-03`}
@@ -35,7 +35,7 @@ const Component: React.VFC<Props> = ({ banner, id }) => (
   </div>
 )
 
-const Container: React.VFC<ContainerProps> = (props) => {
+const Container: React.FC<ContainerProps> = (props) => {
   return <Component {...props} />
 }
 

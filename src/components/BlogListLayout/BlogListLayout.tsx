@@ -14,7 +14,7 @@ export type { ContainerProps as BlogListLayoutProps }
 
 type Props = ContainerProps
 
-const Component: React.VFC<Props> = ({ contents, currentPage, pager, selectedCategory, ...layoutProps }) => (
+const Component: React.FC<Props> = ({ contents, currentPage, pager, selectedCategory, ...layoutProps }) => (
   <Layout {...layoutProps}>
     <Breadcrumb />
     {contents.length === 0 ? (
@@ -25,7 +25,7 @@ const Component: React.VFC<Props> = ({ contents, currentPage, pager, selectedCat
   </Layout>
 )
 
-const Container: React.VFC<ContainerProps> = (props) => {
+const Container: React.FC<ContainerProps> = (props) => {
   return <Component {...props} />
 }
 

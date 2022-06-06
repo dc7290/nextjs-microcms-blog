@@ -1,8 +1,7 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import Head from 'next/head'
 
 import BlogListLayout, { BlogListLayoutProps } from '~/src/components/BlogListLayout/BlogListLayout'
-import { OG_TITLE, returnTitle } from '~/src/utils/meta'
+import { Head } from '~/src/components/Head'
 import { getBlogs, getCategories, getGlobalContents, limit } from '~/src/utils/microCMS/getContents'
 
 export const getAllCategoryPagePaths = async () => {
@@ -46,16 +45,13 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 }
 
 const PagingPage: NextPage<Props> = (props) => {
-  const title = returnTitle(
-    props.currentPage ? `${props.selectedCategory?.name ?? ''} ${props.currentPage}ページ目の記事一覧` : undefined
-  )
-
   return (
     <>
-      <Head>
-        <title>{title}</title>
-        <meta key={OG_TITLE} property={OG_TITLE} content={title} />
-      </Head>
+      <Head
+        title={
+          props.currentPage ? `${props.selectedCategory?.name ?? ''} ${props.currentPage}ページ目の記事一覧` : undefined
+        }
+      />
       <BlogListLayout {...props} />
     </>
   )

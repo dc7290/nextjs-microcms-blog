@@ -32,7 +32,7 @@ const LinkList = [
   },
 ]
 
-const Component: React.VFC<Props> = ({ params, isOpen, toggleOpen, setIsOpen }) => (
+const Component: React.FC<Props> = ({ params, isOpen, toggleOpen, setIsOpen }) => (
   <>
     <header id={headerId} className={styles.header}>
       <h1 className={styles.logo}>
@@ -70,7 +70,7 @@ const Component: React.VFC<Props> = ({ params, isOpen, toggleOpen, setIsOpen }) 
   </>
 )
 
-const Container: React.VFC = () => {
+const Container: React.FC = () => {
   const [params, setParams] = useState('')
   useEffect(() => {
     setParams(window.location.search)

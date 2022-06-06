@@ -1,16 +1,15 @@
 import { MicroCMSListResponse } from 'microcms-js-sdk'
 import type { GetStaticProps, NextPage } from 'next'
-import Head from 'next/head'
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
 
 import { BlogList } from '~/src/components/BlogList'
+import { Head } from '~/src/components/Head'
 import { Layout } from '~/src/components/Layout'
 import { LayoutProps } from '~/src/components/Layout/Layout'
 import { Search } from '~/src/components/Search'
 import styles from '~/src/styles/pages/search.module.css'
 import { Blog } from '~/src/types/microCMS/Blog'
-import { OG_TITLE, returnTitle } from '~/src/utils/meta'
 import { getGlobalContents } from '~/src/utils/microCMS/getContents'
 
 type Props = LayoutProps
@@ -22,8 +21,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     props: { banner, categories, popularArticles },
   }
 }
-
-const title = returnTitle('検索結果')
 
 const SearchPage: NextPage<Props> = (props) => {
   const router = useRouter()
@@ -38,10 +35,7 @@ const SearchPage: NextPage<Props> = (props) => {
 
   return (
     <>
-      <Head>
-        <title>{title}</title>
-        <meta key={OG_TITLE} property={OG_TITLE} content={title} />
-      </Head>
+      <Head title="検索結果" />
       <Layout {...props}>
         <Search isShowText={false} />
         {data === undefined ? (

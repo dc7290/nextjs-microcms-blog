@@ -1,10 +1,9 @@
 import { processer, createTableOfContents } from 'microcms-richedit-processer'
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import Head from 'next/head'
 
 import { BlogDetailLayout } from '~/src/components/BlogDetailLayout'
 import { BlogDetailLayoutProps } from '~/src/components/BlogDetailLayout/BlogDetailLayout'
-import { DESCRIPTION, OG_DESCRIPTION, OG_IMAGE, OG_TITLE, returnTitle } from '~/src/utils/meta'
+import { Head } from '~/src/components/Head'
 import { getBlog, getGlobalContents } from '~/src/utils/microCMS/getContents'
 
 export const getAllSlugPaths = async () => {
@@ -54,18 +53,9 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params, preview, p
 }
 
 const IndexPage: NextPage<Props> = (props) => {
-  const title = returnTitle(props.content.title)
-  const description = props.content.description
-
   return (
     <>
-      <Head>
-        <title>{title}</title>
-        <meta key={OG_TITLE} property={OG_TITLE} content={title} />
-        <meta key={DESCRIPTION} name={DESCRIPTION} content={description} />
-        <meta key={OG_DESCRIPTION} property={OG_DESCRIPTION} content={description} />
-        <meta key={OG_IMAGE} property={OG_IMAGE} content={props.content.ogimage.url} />
-      </Head>
+      <Head title={props.content.title} description={props.content.description} ogImage={props.content.ogimage.url} />
       <BlogDetailLayout {...props} />
     </>
   )

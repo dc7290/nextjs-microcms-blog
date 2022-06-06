@@ -12,7 +12,7 @@ type ContainerProps = {
 }
 type Props = ContainerProps
 
-const Component: React.VFC<Props> = ({ categories }) => (
+const Component: React.FC<Props> = ({ categories }) => (
   <div className={styles.wrapper}>
     <h1 className={styles.pageTitle}>カテゴリー</h1>
     <ul>
@@ -27,7 +27,7 @@ const Component: React.VFC<Props> = ({ categories }) => (
   </div>
 )
 
-const Container: React.VFC<ContainerProps> = (props) => {
+const Container: React.FC<ContainerProps> = (props) => {
   return <Component {...props} />
 }
 

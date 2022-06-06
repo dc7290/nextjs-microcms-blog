@@ -13,7 +13,7 @@ type ContainerProps = {
 
 type Props = ContainerProps
 
-const Component: React.VFC<Props> = ({ author, category, createdAt }) => (
+const Component: React.FC<Props> = ({ author, category, createdAt }) => (
   <div>
     {category && <span className={styles.category}>{category.name}</span>}
     <div className={styles.meta}>
@@ -31,7 +31,7 @@ const Component: React.VFC<Props> = ({ author, category, createdAt }) => (
   </div>
 )
 
-const Container: React.VFC<ContainerProps> = (props) => {
+const Container: React.FC<ContainerProps> = (props) => {
   return <Component {...props} />
 }
 

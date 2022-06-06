@@ -11,7 +11,7 @@ type ContainerProps = {
 
 type Props = ContainerProps
 
-const Component: React.VFC<Props> = ({ partner }) => (
+const Component: React.FC<Props> = ({ partner }) => (
   <div className={styles.wrapper}>
     <div className={styles.container}>
       <picture>
@@ -43,7 +43,7 @@ const Component: React.VFC<Props> = ({ partner }) => (
   </div>
 )
 
-const Container: React.VFC<ContainerProps> = (props) => {
+const Container: React.FC<ContainerProps> = (props) => {
   return <Component {...props} />
 }
 

@@ -18,7 +18,7 @@ export type { ContainerProps as TocProps }
 
 type Props = { headerHeight: number } & ContainerProps
 
-const Component: React.VFC<Props> = ({ toc, headerHeight }) => (
+const Component: React.FC<Props> = ({ toc, headerHeight }) => (
   <div className={styles.wrapper}>
     <h4 className={styles.title}>目次</h4>
     <ul>
@@ -33,7 +33,7 @@ const Component: React.VFC<Props> = ({ toc, headerHeight }) => (
   </div>
 )
 
-const Container: React.VFC<ContainerProps> = (props) => {
+const Container: React.FC<ContainerProps> = (props) => {
   const { width } = useWindowSize(800)
   const [headerHeight, setHeaderHeight] = useState(60)
   useEffect(() => {

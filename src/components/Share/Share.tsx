@@ -1,7 +1,5 @@
 import React, { useMemo } from 'react'
 
-import { SITE_URL } from '~/src/utils/meta'
-
 import styles from './Share.module.css'
 
 type ContainerProps = {
@@ -17,7 +15,7 @@ type Props = {
   }[]
 }
 
-const Component: React.VFC<Props> = ({ shareList }) => (
+const Component: React.FC<Props> = ({ shareList }) => (
   <div className={styles.share}>
     <ul className={styles.shareLists}>
       {shareList.map((shareItem) => (
@@ -31,26 +29,26 @@ const Component: React.VFC<Props> = ({ shareList }) => (
   </div>
 )
 
-const Container: React.VFC<ContainerProps> = ({ id, title }) => {
+const Container: React.FC<ContainerProps> = ({ id, title }) => {
   const shareList: Props['shareList'] = useMemo(
     () => [
       {
-        href: `https://twitter.com/intent/tweet?text=${title}&url=${SITE_URL}/${id}/&hashtags=microcms`,
+        href: `https://twitter.com/intent/tweet?text=${title}&url=${process.env.NEXT_PUBLIC_SITE_URL}/${id}/&hashtags=microcms`,
         src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/icon_twitter.svg`,
         alt: 'Twitter',
       },
       {
-        href: `https://www.facebook.com/sharer.php?u=${SITE_URL}/${id}/`,
+        href: `https://www.facebook.com/sharer.php?u=${process.env.NEXT_PUBLIC_SITE_URL}/${id}/`,
         src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/icon_facebook.svg`,
         alt: 'Facebook',
       },
       {
-        href: `https://b.hatena.ne.jp/entry/${SITE_URL}/${id}/`,
+        href: `https://b.hatena.ne.jp/entry/${process.env.NEXT_PUBLIC_SITE_URL}/${id}/`,
         src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/icon_hatena.svg`,
         alt: 'はてなブックマーク',
       },
       {
-        href: `${SITE_URL}/feed.xml`,
+        href: `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
         src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/icon_feed.svg`,
         alt: 'フィード',
       },

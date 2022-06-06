@@ -15,14 +15,14 @@ type Props = {
   onKeyPress: KeyboardEventHandler<HTMLInputElement>
 } & ContainerProps
 
-const Component: React.VFC<Props> = ({ value, onChange, onKeyPress, isShowText = true }) => (
+const Component: React.FC<Props> = ({ value, onChange, onKeyPress, isShowText = true }) => (
   <label className={styles.label}>
     {isShowText && 'サイト内検索'}
     <input className={styles.input} type="text" value={value} onChange={onChange} onKeyPress={onKeyPress} />
   </label>
 )
 
-const Container: React.VFC<ContainerProps> = (props) => {
+const Container: React.FC<ContainerProps> = (props) => {
   const [value, setValue] = useState('')
   const handleChange: Props['onChange'] = (event) => setValue(event.currentTarget.value)
 

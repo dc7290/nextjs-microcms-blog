@@ -32,7 +32,7 @@ export type { ContainerProps as BlogDetailLayoutProps }
 
 type Props = ContainerProps
 
-const Component: React.VFC<Props> = ({ content, toc, ...layoutProps }) => (
+const Component: React.FC<Props> = ({ content, toc, ...layoutProps }) => (
   <Layout {...layoutProps}>
     <div className={styles.ogimageWrap}>
       <picture>
@@ -80,7 +80,7 @@ const Component: React.VFC<Props> = ({ content, toc, ...layoutProps }) => (
   </Layout>
 )
 
-const Container: React.VFC<ContainerProps> = (props) => {
+const Container: React.FC<ContainerProps> = (props) => {
   return <Component {...props} />
 }
 

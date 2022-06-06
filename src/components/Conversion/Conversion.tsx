@@ -13,7 +13,7 @@ const list = [
   '安心の日本製・日本語でのチャットサポート',
 ]
 
-const Component: React.VFC<Props> = ({ id }) => (
+const Component: React.FC<Props> = ({ id }) => (
   <div>
     <h2 className={styles.pageTitle}>microCMSとは</h2>
     <ol className={styles.lists}>
@@ -41,7 +41,7 @@ const Component: React.VFC<Props> = ({ id }) => (
   </div>
 )
 
-const Container: React.VFC<ContainerProps> = (props) => {
+const Container: React.FC<ContainerProps> = (props) => {
   return <Component {...props} />
 }
 

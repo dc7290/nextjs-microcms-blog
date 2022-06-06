@@ -32,3 +32,4 @@ public/sitemap*.xml
 .idea/
 .vercel
 .eslintcache
+tsconfig.tsbuildinfo
