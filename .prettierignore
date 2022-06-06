@@ -1,4 +1,4 @@
 .next
 public
-src/api/$api.ts
-lib/$path.ts
+src/utils/$path.ts
+*.config.js

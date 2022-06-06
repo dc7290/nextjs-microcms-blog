@@ -1,10 +1,9 @@
 # Next.js
 /.next
 /public
-/out
 
 # config
-next.config.js
+*.config.js
 .eslintrc.js
 
-src/api/$api.ts
+src/utils/$path.ts
