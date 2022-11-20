@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@next/bundle-analyzer": "12.1.6",
-    "@types/react": "18.0.12",
+    "@types/react": "18.0.25",
     "@types/react-scroll": "1.8.3",
     "@types/rss": "0.0.29",
     "@typescript-eslint/eslint-plugin": "5.27.0",
