@@ -24,7 +24,7 @@
     ]
   },
   "dependencies": {
-    "dayjs": "1.11.2",
+    "dayjs": "1.11.13",
     "highlight.js": "11.5.1",
     "lazysizes": "^5.3.2",
     "microcms-js-sdk": "2.0.0",
